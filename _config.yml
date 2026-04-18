@@ -60,7 +60,7 @@ plugins:
 author:
   name   : "Vincent Pham"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Electrical Engineering student building embedded systems and hardware projects. Also compete in Brazilian Jiu-Jitsu."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
