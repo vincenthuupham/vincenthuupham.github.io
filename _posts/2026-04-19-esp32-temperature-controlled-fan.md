@@ -59,7 +59,7 @@ void loop() {
   Serial.println(" % ");
   delay(2000);
 }
-\```
+```
 
 ## Code Walkthrough
 
