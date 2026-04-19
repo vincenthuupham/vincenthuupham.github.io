@@ -70,4 +70,3 @@ void loop() {
 - `dht.readTemperature()` / `dht.readHumidity()` — reads current values from the sensor
 - `if (temp > 25)` — threshold logic that drives the fan pin HIGH or LOW accordingly
 - `delay(2000)` — waits 2 seconds between readings, matching the DHT22's minimum sampling interval
-```
