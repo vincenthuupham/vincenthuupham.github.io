@@ -11,19 +11,19 @@ This project builds on my first ESP32 experiment by combining two circuits into 
 
 ## How It Works
 
-The DHT22 sensor reads the ambient temperature every 2 seconds and sends the value to the ESP32 over a single data line. The ESP32 evaluates the reading in code — if the temperature exceeds 25°C, it drives the fan pin HIGH, turning the fan on. Otherwise it drives it LOW, turning the fan off.
+The DHT22 sensor reads the ambient temperature every 2 seconds and sends the value to the ESP32 over a single data line. The ESP32 evaluates the reading in code. If the temperature exceeds 25°C it drives the fan pin HIGH, turning the fan on. Otherwise it drives it LOW, turning the fan off.
 
 The fan and sensor are wired independently. They share the same GND and 3.3V pins on the ESP32, but their data lines go to separate GPIO pins. The connection between them exists only in code.
 
 ## What I Learned
 
-**Fans don't need current-limiting resistors.** When I first tried replacing the LED from my blink project with a fan, nothing happened. After some troubleshooting I suspected the resistor was choking the current, removed it, and the fan started working. Unlike LEDs, fans regulate their own current draw and don't require a resistor in series.
+Fans don't need current-limiting resistors. When I first tried replacing the LED from my blink project with a fan, nothing happened. After some troubleshooting I suspected the resistor was choking the current, removed it, and the fan started working. Unlike LEDs, fans regulate their own current draw and don't require a resistor in series.
 
-**GPIO2 is a strapping pin.** When I tried uploading code with something wired to GPIO2 (D2), I kept getting a boot mode error. The ESP32 uses certain pins — GPIO0, GPIO2, and GPIO15 — to determine how it boots. Having an external connection on GPIO2 was interfering with the upload. Disconnecting it resolved the issue immediately.
+GPIO2 is a strapping pin. When I tried uploading code with something wired to GPIO2 (D2), I kept getting a boot mode error. The ESP32 uses certain pins, GPIO0, GPIO2, and GPIO15, to determine how it boots. Having an external connection on GPIO2 was interfering with the upload. Disconnecting it resolved the issue immediately.
 
-**Sensor wiring order matters.** My DHT22 was returning `nan` for both temperature and humidity. The root cause was simple — the power and ground wires were swapped. Correcting the wiring fixed the readings instantly.
+Sensor wiring order matters. My DHT22 was returning `nan` for both temperature and humidity. The root cause was simple, the power and ground wires were swapped. Correcting the wiring fixed the readings instantly.
 
-**Serial.print vs Serial.println.** All my sensor readings were printing on one continuous line in the Serial Monitor. Replacing the final `Serial.print()` with `Serial.println()` added a newline after each reading, matching the expected output format.
+Serial.print vs Serial.println. All my sensor readings were printing on one continuous line in the Serial Monitor. Replacing the final `Serial.print()` with `Serial.println()` added a newline after each reading, matching the expected output format.
 
 ## Code
 
