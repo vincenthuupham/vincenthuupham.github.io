@@ -11,7 +11,7 @@ I removed the fan entirely. The previous project already proved the sensor and t
 
 ## Circuit
 
-Same DHT22 wiring as before, just without the fan circuit. Power, ground, and data line to a GPIO pin.
+Same DHT22 wiring as before, just without the fan circuit. Data line to GPIO15, power to the 3.3V pin, ground to GND.
 
 ## How It Works
 
@@ -21,13 +21,13 @@ There's no JavaScript, no external hosting, no frameworks. The entire website is
 
 ## Troubleshooting
 
-**Site would stop loading after a while.** The ESP32 was getting stuck in its client loop if a browser connected but didn't finish sending its request cleanly. The fix was adding a 2 second timeout — if the request doesn't complete in time, the ESP32 bails out and moves on instead of hanging forever.
+The site would stop loading after a while. The ESP32 was getting stuck in its client loop if a browser connected but didn't finish sending its request cleanly. The fix was adding a 2 second timeout so if the request doesn't complete in time, the ESP32 bails out and moves on instead of hanging forever.
 
-**Readings showing `nan`.** The sensor was being read too early in the loop before the DHT22 had time to sample. Moving the read to only happen when a client actually connects fixed it.
+Readings were showing `nan`. I had moved the DHT22 from GPIO5 to GPIO15 on the physical circuit for organizational reasons but forgot to update the pin number in the code. Updating `DHT dht(5, DHT22)` to `DHT dht(15, DHT22)` fixed it immediately.
 
 ## AI Usage
 
-I used Claude throughout this project as a development tool. The base code structure, the timeout fix, and the debugging approach were all done with Claude in the loop. That said, the actual troubleshooting decisions were mine — figuring out that the site was hanging, suspecting the client loop, understanding why `nan` was showing up. Claude helped me move faster but the problem solving was hands on.
+I used Claude throughout this project as a development tool. The base code structure, the timeout fix, and the debugging approach were all done with Claude in the loop. That said, the actual troubleshooting decisions were mine. Figuring out that the site was hanging, suspecting the client loop, catching the GPIO mismatch. Claude helped me move faster but the problem solving was hands on.
 
 I think that's worth being transparent about. Using AI to accelerate a project is a real skill and pretending otherwise doesn't help anyone.
 
@@ -88,11 +88,9 @@ void loop() {
 
 ## What I Learned
 
-How HTTP actually works at a low level. Writing raw `client.println("HTTP/1.1 200 OK")` makes it click in a way that using a framework never would. The browser is just waiting for that exact string, and the ESP32 is the one sending it.
+How HTTP actually works at a low level. Writing raw `client.println("HTTP/1.1 200 OK")` makes it click in a way that using a framework never would. The browser is just waiting for that exact string and the ESP32 is the one sending it.
 
-How servers can hang. The timeout issue was a good lesson in what happens when a server doesn't handle bad or incomplete connections. Without the timeout the ESP32 just froze and ignored everything else.
+How servers can hang. The timeout issue was a good lesson in what happens when a server doesn't handle bad or incomplete connections. Without it the ESP32 froze and ignored everything else.
 
 That barebones is fine. The whole site is a handful of lines and it works. Not everything needs a library or a framework.
 ```
-
-Swapped out your real credentials for placeholders obviously.
