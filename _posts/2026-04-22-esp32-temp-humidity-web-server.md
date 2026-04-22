@@ -11,6 +11,8 @@ I removed the fan entirely to keep the focus clean. The previous project already
 
 ## Circuit
 
+![ESP32 Temperature & Humidity Web Server](/assets/images/thservermain.jpg)
+
 Same DHT22 wiring as before, just without the fan circuit. Data line to GPIO15, power to the 3.3V pin, ground to GND.
 
 ## How It Works
@@ -24,6 +26,8 @@ There's no JavaScript, no external hosting, no frameworks. The entire website is
 The site would stop loading after a while. The ESP32 was getting stuck in its client loop if a browser connected but didn't finish sending its request cleanly. The fix was adding a 2 second timeout so if the request doesn't complete in time, the ESP32 bails out and moves on instead of hanging forever.
 
 Readings were showing `nan`. I had moved the DHT22 from GPIO5 to GPIO15 on the physical circuit for organizational reasons but forgot to update the pin number in the code. Updating `DHT dht(5, DHT22)` to `DHT dht(15, DHT22)` fixed it immediately.
+
+![Web server running](/assets/images/thservermainscreenshot.jpg)
 
 ## AI Usage
 
