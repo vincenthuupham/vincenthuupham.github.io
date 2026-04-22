@@ -29,8 +29,6 @@ Readings were showing `nan`. I had moved the DHT22 from GPIO5 to GPIO15 on the p
 
 I used Claude throughout this project as a development tool. The base code structure, the timeout fix, and the debugging approach were all done with Claude in the loop. That said, the actual troubleshooting decisions were mine. Figuring out that the site was hanging, suspecting the client loop, catching the GPIO mismatch. Claude helped me move faster but the problem solving was hands on.
 
-I think that's worth being transparent about. Using AI to accelerate a project is a real skill and pretending otherwise doesn't help anyone.
-
 ## Code
 
 ```cpp
