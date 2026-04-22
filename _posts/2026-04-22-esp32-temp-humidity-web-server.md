@@ -7,7 +7,7 @@ This project builds off my previous ESP32 temperature controlled fan by strippin
 
 ## What I Changed and Why
 
-I removed the fan entirely. The previous project already proved the sensor and threshold logic worked. What I wanted to test here was whether I could serve that data over a network in real time. Mixing the fan back in would've added noise to the debugging process, so I left it out and kept the focus clean.
+I removed the fan entirely. The previous project already proved the sensor and threshold logic worked. What I wanted to test here was whether I could serve that data over a network in real time.
 
 ## Circuit
 
