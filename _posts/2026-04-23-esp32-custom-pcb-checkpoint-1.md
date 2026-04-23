@@ -45,6 +45,6 @@ From there I went on Amazon to cross-reference the pin diagram and also just loo
 ![ERC passing with no violations](/assets/images/erc-clean.jpg)
 
 ## PCB Editor Issues
-Got the components placed, wired everything up in the schematic editor, ran the electrical rules check and it came back clean. Then pushed it to the PCB editor, and that's where things got weird: the two Conn_01x15 headers were just missing. Turned out I needed to assign footprints to them. For standard pin headers, the right one is: Connector_PinHeader_2.54mm:PinHeader_1x15_P2.54mm_Vertical. Fixed that, re-updated the PCB, and everything showed up. That's where I'm leaving off.
+Got the components placed, wired everything up in the schematic editor, ran the electrical rules check and it came back clean. Then pushed it to the PCB editor, and that's where things got weird: the two Conn_01x15 headers were just missing. Turned out I needed to assign footprints to them. Fixed that, re-updated the PCB, and everything showed up. That's where I'm leaving off.
 ![Updating the PCB from schematic with the AM2302 footprint now assigned](/assets/images/update-pcb.jpg)
 ![PCB editor with all components placed and ratsnest lines visible](/assets/images/pcb-editor-final.jpg)
