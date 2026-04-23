@@ -5,7 +5,7 @@ date: 2026-04-23
 Building off my ESP32 Temperature & Humidity Web Server project, I decided to take the next step and design a custom PCB.
 
 ## Getting Started
-The first thing I did was download KiCad, and immediately ran into my first issue: figuring out which ESP32 board I actually had. The first thing I did was download KiCad, and immediately ran into my first issue: figuring out which ESP32 board I actually had. I opened the schematic editor, assuming I'd just recreate my circuit in the software, pulled up the symbol search, typed in "ESP32," and got hit with an entire list. I checked Amazon for the exact ESP32 I bought and tried to read through the description and specs, but got nowhere. Rather than digging through the product description trying to figure out which one I had, I wrote a quick Arduino sketch to just ask the board directly:
+The first thing I did was download KiCad, and immediately ran into my first issue: figuring out which ESP32 board I actually had. I opened the schematic editor, assuming I'd just recreate my circuit in the software, pulled up the symbol search, typed in "ESP32," and got hit with an entire list. I checked Amazon for the exact ESP32 I bought and tried to read through the description and specs, but got nowhere. Rather than digging through the product description trying to figure out which one I had, I wrote a quick Arduino sketch to just ask the board directly:
 
 ```cpp
 void setup() {
