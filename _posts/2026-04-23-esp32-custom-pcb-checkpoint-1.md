@@ -9,15 +9,18 @@ First thing I did was download KiCad, and immediately ran into my first issue �
 That's when I learned there are actual layers to this thing. There's the chip itself, then the module sitting between the chip and the dev board, and then the dev board I'd been using the whole time. Instead of digging through the product description trying to figure out which one I had, I wrote a quick Arduino sketch to just ask the board directly:
 
 ```cpp
-cppvoid setup() {
+void setup() {
   Serial.begin(115200);
   delay(3000);
   Serial.println(ESP.getChipModel());
   Serial.println(ESP.getChipRevision());
 }
 void loop() {}
+```
 
 Serial Monitor output confirmed it:
+
+```cpp
 ets Jul 29 2019 12:21:46
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 configsip: 0, SPIWP:0xee
@@ -31,6 +34,7 @@ entry 0x400805b4
 ESP32-D0WD-V3
 301
 ```
+
 ## From Breadboard to PCB
 Then came another realization — if I'm going to order a custom PCB, shouldn't I order the ESP32 module first and build around that? Turns out these companies don't just give you an ESP32 chip when you order a custom PCB. And trying to find the bare chip or module on Amazon was a dead end anyway since everyone's just selling dev boards. With all of this piling up, being completely new to all of it, I just said screw it. A custom PCB is essentially my previous breadboard setup flattened into one board — that's literally all it is. So the plan became to just build the PCB around the dev board I already have, keep it simple, and get familiar with the tools and the process.
 
