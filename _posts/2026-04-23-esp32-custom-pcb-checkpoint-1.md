@@ -2,6 +2,7 @@
 title: "ESP32 Custom PCB (KiCad) Part 1"
 date: 2026-04-23
 ---
+
 Building off my ESP32 Temperature & Humidity Web Server project, I decided to take the next step and design a custom PCB.
 
 ## Getting Started
