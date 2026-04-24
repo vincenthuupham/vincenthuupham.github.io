@@ -13,7 +13,7 @@ That 25.4mm is exactly 1 inch, which is not a coincidence. Electronics standardi
 
 While I was poking around the DHT22 footprint I also noticed it had 4 pins in the PCB editor even though the schematic only shows 3. Turns out pin 3 is labeled NC, which stands for Not Connected, and serves no electrical purpose. It's just a placeholder pin to give the sensor a more stable, balanced fit on the board.
 
-![](/assets/images/img1env.jpg)
+![](/assets/images/img6env.jpg)
 
 Got the connectors spaced correctly, placed the AM2302, drew the board outline using the Edge.Cuts layer, and routed the traces. Everything fit on a single layer. The unrouted connections shown as thin diagonal lines are called ratsnest lines, which is the actual industry term for them.
 
@@ -29,7 +29,7 @@ Then I opened the 3D viewer, which is useful for catching physical issues that a
 
 The fix was straightforward. I opened properties on each connector in the PCB editor and swapped the footprint from PinHeader to PinSocket, changing them to female headers.
 
-![](/assets/images/img6env.jpg)
+![](/assets/images/img1env.jpg)
 
 Female headers, problem solved.
 
