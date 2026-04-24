@@ -3,7 +3,7 @@ title: "ESP32 Custom PCB (KiCad) Part 2"
 date: 2026-04-24
 ---
 
-Coming into today I was already in the PCB editor with everything placed, so the first order of business was figuring out spacing. Unlike the schematic editor, physical dimensions actually matter here.
+PCB layout is where the schematic stops being abstract. Coming into today I was already in the PCB editor with everything placed, so the first order of business was figuring out spacing. Unlike the schematic editor, physical dimensions actually matter here.
 
 After using Claude to parse through the Amazon listing for my ELEGOO ESP32, I found out it's a standard 30-pin board with pins spaced 2.54mm apart and the two rows sitting 25.4mm apart.
 
