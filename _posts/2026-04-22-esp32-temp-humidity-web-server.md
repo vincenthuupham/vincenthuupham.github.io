@@ -8,7 +8,7 @@ This project builds off my previous ESP32 temperature controlled fan by strippin
 I removed the fan entirely to keep the focus clean. The previous project already proved the sensor and threshold logic worked. What I wanted to test here was whether I could serve that data over a network in real time.
 
 ## Circuit
-![ESP32 Temperature & Humidity Web Server](/assets/images/thservermain.jpg)
+![](/assets/images/esp32-temp-humidity-web-server-img-1.jpg)
 Same DHT22 wiring as before, just without the fan circuit. Data line to GPIO15, power to the 3.3V pin, ground to GND.
 
 ## How It Works
@@ -21,7 +21,7 @@ The site would stop loading after a while. The ESP32 was getting stuck in its cl
 
 Readings were showing `nan`. I had moved the DHT22 from GPIO5 to GPIO15 on the physical circuit for organizational reasons but forgot to update the pin number in the code. Updating `DHT dht(5, DHT22)` to `DHT dht(15, DHT22)` fixed it immediately.
 
-![Web server running](/assets/images/thservermainscreenshot.jpg)
+![](/assets/images/esp32-temp-humidity-web-server-img-2.jpg)
 
 ## AI Usage
 I started with Arduino's built-in SimpleWifiServer example sketch as a base. From there I used Claude to strip it down to the bare minimum so I could actually understand what each part was doing, then used it again to integrate a stripped down version of my fan project's sensor code. The base code structure, the timeout fix, and the debugging approach were all done with Claude in the loop. That said, the actual troubleshooting decisions were mine. Figuring out that the site was hanging, suspecting the client loop, catching the GPIO mismatch. Claude helped me move faster but the problem solving was hands on.
