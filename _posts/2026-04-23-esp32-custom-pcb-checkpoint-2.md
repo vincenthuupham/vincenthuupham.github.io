@@ -5,17 +5,17 @@ date: 2026-04-24
 
 PCB layout is where the schematic stops being abstract. Coming into today I was already in the PCB editor with everything placed, so the first order of business was figuring out spacing. Unlike the schematic editor, physical dimensions actually matter here.
 
-After using Claude to parse through the Amazon listing for my ELEGOO ESP32, I found out it's a standard 30-pin board with pins spaced 2.54mm apart and the two rows sitting 25.4mm apart.
+After using Claude to parse through the Amazon listing for my ELEGOO ESP32, I found out it's a standard 30-pin board with pins spaced 2.54mm apart and the two rows sitting 25.4mm apart:
 
 ![](/assets/images/img2env.jpg)
 
-While I was poking around the DHT22 footprint I also noticed it had 4 pins in the PCB editor even though the schematic only shows 3. Turns out pin 3 is labeled NC, which stands for Not Connected, and serves no electrical purpose. It's just a placeholder pin to give the sensor a more stable, balanced fit on the board.
+While I was poking around the DHT22 footprint I also noticed it had 4 pins in the PCB editor even though the schematic only shows 3. Turns out pin 3 is labeled NC, which stands for Not Connected, and serves no electrical purpose. It's just a placeholder pin to give the sensor a more stable, balanced fit on the board:
+
+![](/assets/images/img4env.jpg)
+
+Got the connectors spaced correctly, placed the AM2302, drew the board outline using the Edge.Cuts layer, and routed the traces. Everything fit on a single layer. The unrouted connections shown as thin diagonal lines are called ratsnest lines, which is the actual industry term for them:
 
 ![](/assets/images/img6env.jpg)
-
-Got the connectors spaced correctly, placed the AM2302, drew the board outline using the Edge.Cuts layer, and routed the traces. Everything fit on a single layer. The unrouted connections shown as thin diagonal lines are called ratsnest lines, which is the actual industry term for them.
-
-![](/assets/images/img3env.jpg)
 
 Running the DRC after routing came back with one error, which was the NC pin flagged as unconnected. Since it's intended to be unconnected, I ignored it.
 
