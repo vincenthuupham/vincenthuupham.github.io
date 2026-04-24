@@ -43,9 +43,11 @@ With the help of Claude, the schematic really only needed two things: the DHT22 
 
 ## Wiring and Layout Issues
 From there I went on Amazon to cross-reference the pin diagram and also just looked at my physical board to copy the connections. Hit a snag where some wires were overlapping, which wasn't an issue on the breadboard since jumper wires aren't constrained to 2D. That's when I found out the PCB can actually be two layers, which solved that.
-![ERC passing with no violations](/assets/images/erc-clean.jpg)
+
+![](/assets/images/esp32-custom-pcb-part-1-img-1.jpg)
 
 ## PCB Editor Issues
 Got the components placed, wired everything up in the schematic editor, ran the electrical rules check and it came back clean. Then pushed it to the PCB editor, and that's where things got weird: the two Conn_01x15 headers were just missing. Turned out I needed to assign footprints to them. Fixed that, re-updated the PCB, and everything showed up. That's where I'm leaving off.
-![Updating the PCB from schematic with the AM2302 footprint now assigned](/assets/images/update-pcb.jpg)
-![PCB editor with all components placed and ratsnest lines visible](/assets/images/pcb-editor-final.jpg)
+
+![](/assets/images/esp32-custom-pcb-part-1-img-2.jpg)
+![](/assets/images/esp32-custom-pcb-part-1-img-3.jpg)
