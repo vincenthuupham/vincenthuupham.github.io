@@ -7,8 +7,6 @@ PCB layout is where the schematic stops being abstract. Coming into today I was 
 
 After using Claude to parse through the Amazon listing for my ELEGOO ESP32, I found out it's a standard 30-pin board with pins spaced 2.54mm apart and the two rows sitting 25.4mm apart.
 
-That 25.4mm is exactly 1 inch, which is not a coincidence. Electronics standardized on 2.54mm pitch because it's exactly 0.1 inches, a legacy from when the US dominated electronics manufacturing and everything was designed in imperial units. The metric numbers are just imperial in disguise.
-
 ![](/assets/images/img2env.jpg)
 
 While I was poking around the DHT22 footprint I also noticed it had 4 pins in the PCB editor even though the schematic only shows 3. Turns out pin 3 is labeled NC, which stands for Not Connected, and serves no electrical purpose. It's just a placeholder pin to give the sensor a more stable, balanced fit on the board.
