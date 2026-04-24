@@ -7,9 +7,7 @@ While reviewing the diagram, I initially questioned why the PCB footprint for th
 
 ![](/assets/images/esp32-custom-pcb-part-2-img-1.jpg)
 
-During the transition into the PCB editor, I also realized that spacing is a critical consideration. To better understand the exact dimensions of my ESP32 development board, I used Claude to parse the product description from Amazon. From this, I confirmed that my ELEGOO ESP32 is a standard 30-pin board.
-
-These boards typically use a 2.54 mm pin pitch (0.1 inches), with the two rows spaced 25.4 mm (1 inch) apart edge-to-edge. This standard originates from legacy imperial measurements used during the early dominance of U.S. electronics manufacturing.
+During the transition into the PCB editor, I also realized that spacing is a critical consideration. To better understand the exact dimensions of my ESP32 development board, I used Claude to parse the product description from Amazon. From this, I confirmed that my ELEGOO ESP32 is a standard 30-pin board. These boards typically use a 2.54 mm pin pitch (0.1 inches), with the two rows spaced 25.4 mm (1 inch) apart edge-to-edge. This standard originates from legacy imperial measurements used during the early dominance of U.S. electronics manufacturing.
 
 ![](/assets/images/esp32-custom-pcb-part-2-img-2.jpg)
 
