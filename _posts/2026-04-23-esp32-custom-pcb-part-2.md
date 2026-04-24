@@ -3,25 +3,29 @@ title: "ESP32 Custom PCB (KiCad) Part 2"
 date: 2026-04-24
 ---
 
-Looking at this diagram I wondered why the fuck there are 4 pins on the PCB Editor footprint of the DHT22. I look at my DHT22 IRL and as u can see on the schematic editor that shit only has 3 pins the fuck Lol. As it turns out Pin 3 (NC) literally does nothing — it's just a placeholder to make the sensor physically stable in a breadboard or PCB. Having 4 pins instead of 3 gives it a more balanced, secure fit:
+While reviewing the diagram, I initially questioned why the PCB footprint for the DHT22 included four pins when the physical sensor and schematic representation clearly show only three. Upon further investigation, I learned that the third pin is designated as NC (no connection) and does not serve any electrical function. Instead, it exists purely for mechanical stability. Including a fourth pin allows the component to sit more securely in a breadboard or PCB, providing better balance and physical support.
 
 ![](/assets/images/esp32-custom-pcb-part-2-img-1.jpg)
 
-Also ran into a problem in which I wondered shit - now that im in the PCB editor - shouldn’t spacing matters? As it turns out yes the fuck it does. Used Claude to help parse the entire Amazon description of the ESP32 dev board I ordered and I learned that For spacing, my ELEGOO ESP32 is a standard 30-pin board. Those typically have pins spaced 2.54mm apart (standard) and the two rows are 25.4mm (1 inch) apart edge-to-edge because electronics standardized on 2.54mm pitch, which is exactly 0.1 inches. It's a legacy from when the US dominated electronics manufacturing and everything was designed in imperial units.
+During the transition into the PCB editor, I also realized that spacing is a critical consideration. To better understand the exact dimensions of my ESP32 development board, I used Claude to parse the product description from Amazon. From this, I confirmed that my ELEGOO ESP32 is a standard 30-pin board.
+
+These boards typically use a 2.54 mm pin pitch (0.1 inches), with the two rows spaced 25.4 mm (1 inch) apart edge-to-edge. This standard originates from legacy imperial measurements used during the early dominance of U.S. electronics manufacturing.
 
 ![](/assets/images/esp32-custom-pcb-part-2-img-2.jpg)
 
-I also learned that the blue lines are called ratsnest lines. But anyways yeah I finished placement of the AM3202, used edge.cuts to make the board, and finished tracing. Turns out I didn’t actually need two layers, the tracing was fine. IIt was also at this stage that I Noticed that 90 degree bends aren’t common. Turns out From what I understand, historically 90 degree traces were avoided since they could become acid traps during etching, which is why the PCB Editor automatically makes these lines 45 degrees:
+I also became familiar with “ratsnest lines,” the blue lines shown in the PCB editor that indicate unconnected electrical nets. After completing component placement for the AM3202, defining the board outline using the Edge.Cuts layer, and routing the traces, I found that a two-layer board was unnecessary, as all routing could be completed cleanly on a single layer.
+
+At this stage, I also noticed that 90-degree trace bends are generally avoided. Historically, sharp corners could create “acid traps” during the etching process, potentially leading to manufacturing defects. As a result, PCB design tools typically favor 45-degree trace angles, which I adopted in my layout.
 
 ![](/assets/images/esp32-custom-pcb-part-2-img-3.jpg)
 
-Problem - finally opened the 3D editor because apparently you’d catch things here you don’t see on the PCB / schematic editor. What do you know my fucking dumbass implemented male rails which won’t connect to my dev board full of male pins. Quick fix I just changed the footprint from PinHeader to PinSocket. Doing the same for J2:
+When I opened the 3D viewer to validate the design, I identified a critical oversight: I had selected male pin headers for connectors intended to interface with a development board that already uses male pins. This would have prevented proper physical connection. I corrected this by replacing the PinHeader footprints with PinSocket footprints for both J1 and J2, ensuring compatibility.
 
 ![](/assets/images/esp32-custom-pcb-part-2-img-4.jpg)
 ![](/assets/images/esp32-custom-pcb-part-2-img-5.jpg)
 ![](/assets/images/esp32-custom-pcb-part-2-img-6.jpg)
 
-So yeah. Everything was finished after. Just needed to create the gerber files, zip it, and upload it to JLCPCB. Everything turned out to be $3.50 CAD.
+With these adjustments complete, the design was finalized. I generated the Gerber files, compressed them into a ZIP archive, and submitted the design to JLCPCB for fabrication. The total manufacturing cost came to approximately $3.50 CAD.
 
 ![](/assets/images/esp32-custom-pcb-part-2-img-7.jpg)
 ![](/assets/images/esp32-custom-pcb-part-2-img-8.jpg)
