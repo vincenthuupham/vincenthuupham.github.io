@@ -43,6 +43,6 @@ Uploaded the zip to JLCPCB, which auto-detected the board dimensions and layer c
 
 ![](/assets/images/img9env.jpg)
 
-Order total came out to $3.50. They're probably not making money on this order.
+Order total came out to $3.50. They're probably losing money on this order.
 
 ![](/assets/images/img10env.jpg)
