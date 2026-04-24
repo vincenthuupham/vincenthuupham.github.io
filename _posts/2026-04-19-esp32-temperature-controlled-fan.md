@@ -7,7 +7,7 @@ This project builds on my first ESP32 experiment by combining two circuits into 
 
 ## Circuit
 
-![ESP32 Temperature Controlled Fan](/assets/images/esptempfanmain.jpg)
+![ESP32 Temperature Controlled Fan](/assets/images/esp32-temperature-controlled-fan-img-1.jpg)
 
 ## How It Works
 
