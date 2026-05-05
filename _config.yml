@@ -60,7 +60,7 @@ plugins:
 author:
   name   : "Vincent Pham"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Electrical Engineering student specializing in Power Systems. Also compete in Brazilian Jiu-Jitsu."
+  bio    : "Electrical Engineering student specializing in Power Systems. Building projects in grid simulation and power flow analysis. Also compete in Brazilian Jiu-Jitsu."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
